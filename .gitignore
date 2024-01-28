@@ -3,3 +3,4 @@ __pycache__
 /build
 
 /django_hugepagination.egg-info
+/venv
