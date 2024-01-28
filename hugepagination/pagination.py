@@ -1,5 +1,6 @@
 import json
 import base64
+import decimal
 from urllib.parse import quote_from_bytes, unquote, urlunparse, urlparse, urlencode, parse_qs 
 from django.conf import settings
 from django.core.paginator import InvalidPage
@@ -155,7 +156,7 @@ class HugePaginator(Paginator):
             ordering_field, 
             ordering_asc, 
             mval,
-            middle_offset
+            middle_offset if not isinstance(middle_offset, decimal.Decimal) else float(middle_offset)
             ])
         query_id = quote_from_bytes(base64.encodebytes(jsonstr.encode()))
         return query_id
