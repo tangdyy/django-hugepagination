@@ -8,6 +8,13 @@ Hugepagination提供了在Django REST framework框架下使用的分页类和模
 + django >= 2.2.0
 + djangorestframework >= 3.10.0
 + django-filter >= 2.2.0
+### 打包发布
+```shell
+# 打包
+python setup.py sdist bdist_wheel
+# 上传
+twine upload dist/*
+```
 ### 安装
 + pip安装
 ```shell
