@@ -155,7 +155,7 @@ class HugePaginator(Paginator):
             count,
             ordering_field, 
             ordering_asc, 
-            mval,
+            mval if not isinstance(mval, decimal.Decimal) else float(mval),
             middle_offset if not isinstance(middle_offset, decimal.Decimal) else float(middle_offset)
             ])
         query_id = quote_from_bytes(base64.encodebytes(jsonstr.encode()))
